@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+
+ <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>UiPath KYC Solution</title>
+
+    <style type = text/css>
+    .flex_c{
+        background-color: #104e8b;
+        display:flex;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        line-height: 50px;
+        justify-content: space-between;
+    }
+	body{
+        background-color: #104e8b; 
+        color: white
+        with:50%;}
+	h1{font-family:arial black; color: gold; font-size:36px}
+	p{font-family:arial; font-size:22px}
+	button{margin: 50px 180px; padding: 15px 32px}
+	.design{font-family:Arial; font-size: 24px}
+    .h2{font-size: 22px;
+        font-style: italic;}
+    form{text-align: left;
+    margin: 10%;}
+    button{
+        color: whitesmoke;
+        background-color:darkblue;
+        font-family: Arial;
+        font-size: 16px;
+        animation-delay: 2s;
+
+        
+    }
+	</style>
+
+  </head>
+
+  <body>
+      <header class="flex_c">
+		<h1 > Gemischtes Paar</h1>
+        <img  src = "\\nhfilmib002\Post_Laa\_CAQ-Auswahl\uipath_automation\LogoClaim.jpg"width="25%" height="25%" />
+    </header>
+	<form action="senden.html" id="Materialnuummer">
+        <label class = "h2" form="Materialnuummer"><u>Materialnummer eingeben</u></label>
+		 <p>  <input  class="design", type="hidden", id = "klammer", maxlength="6"></br></p>
+          <p>11er Materialnuummer eingeben: <input  class="design", type="text" id="mat", maxlength="9"><br></p>  
+          <button onclick="SubmitValues()">Ausführen</button>
+	</form>
+	  
+  
+        
+		  
+          
+
+
+          <script type="text/javascript">
+          function SubmitValues(){
+			var mat = document.getElementById("mat").value
+			/*var auftr = document.getElementById("auftr").value
+		    var klam = document.getElementById("klammer").value
+            var auftr = document.getElementById("auftr").value;
+            /*window.external.setResult(auftr + ","  + klam);*/
+			window.external.setResult(mat);
+            return true;
+          }
+            
+          </script>
+  </body>
+  </html>
