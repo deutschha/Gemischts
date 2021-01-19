@@ -58,7 +58,6 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="SapLogin" sap:VirtualizedContainerService.HintSize="547,1553" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -128,10 +127,7 @@
     </ui:TypeInto>
     <ui:UiElementExists DisplayName="Element Exists 'Titlebar SAP'" Exists="[startseite]" sap:VirtualizedContainerService.HintSize="505,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7771cef0-929d-408d-977a-9aa3d9953f36" InformativeScreenshot="fde8637dc0c0b0634ede056a320224de" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP Easy Access  MIBA logistics menu' /&gt;&lt;sap id='titl' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7771cef0-929d-408d-977a-9aa3d9953f36" InformativeScreenshot="fde8637dc0c0b0634ede056a320224de" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP Easy Access  MIBA logistics menu' /&gt;&lt;sap id='titl' /&gt;" TimeoutMS="500">
           <ui:Target.WaitForReady>
             <InArgument x:TypeArguments="ui:WaitForReady" />
           </ui:Target.WaitForReady>
