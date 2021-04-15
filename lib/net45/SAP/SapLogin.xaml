@@ -1,6 +1,6 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SapLogin" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1051,1718" sap2010:WorkflowViewState.IdRef="SapLogin_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SapLogin" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1094,2436" sap2010:WorkflowViewState.IdRef="SapLogin_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="44">
+    <scg:List x:TypeArguments="x:String" Capacity="33">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -28,10 +28,16 @@
       <x:String>System.Runtime.InteropServices</x:String>
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>UiPath.Core.Activities.SAP</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.CV</x:String>
+      <x:String>UiPath.Shared.ObjectLibrary</x:String>
+      <x:String>UiPath.CV.Activities</x:String>
+      <x:String>UiPath.CV.Activities.Interfaces</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="32">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="62">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -58,22 +64,29 @@
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SapLogin" sap:VirtualizedContainerService.HintSize="547,1553" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SapLogin" sap:VirtualizedContainerService.HintSize="693,2231" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="variable1" />
       <Variable x:TypeArguments="ss:SecureString" Name="password" />
       <Variable x:TypeArguments="ss:SecureString" Name="benutzer" />
       <Variable x:TypeArguments="x:Boolean" Name="startseite" />
       <Variable x:TypeArguments="x:Boolean" Name="achtung" />
+      <Variable x:TypeArguments="x:Boolean" Name="isda" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign-Variable für Benutzer" sap:VirtualizedContainerService.HintSize="505,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign-Variable für Benutzer" sap:VirtualizedContainerService.HintSize="651,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="ss:SecureString">[benutzer]</OutArgument>
       </Assign.To>
@@ -81,17 +94,17 @@
         <InArgument x:TypeArguments="ss:SecureString">[New System.Net.NetworkCredential(String.Empty,"deutschha").SecurePassword]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign-Variable für Passwort" sap:VirtualizedContainerService.HintSize="505,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="Assign-Variable für Passwort" sap:VirtualizedContainerService.HintSize="651,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="ss:SecureString">[password]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="ss:SecureString">[New System.Net.NetworkCredential(String.Empty,"Har-19/3").SecurePassword]</InArgument>
+        <InArgument x:TypeArguments="ss:SecureString">[New System.Net.NetworkCredential(String.Empty,"Har_1973").SecurePassword]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Text 'TextField  Benutzer eintragen" sap:VirtualizedContainerService.HintSize="505,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_1" SecureText="[benutzer]">
+    <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Text 'TextField  Benutzer eintragen" sap:VirtualizedContainerService.HintSize="651,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_1" SecureText="[benutzer]">
       <ui:TypeSecureText.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7651725e-2b18-47c0-9cc2-d77970e1cc78" InformativeScreenshot="bff398cee92439dcf4d410f94f6a77b0" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*SAP' /&gt;&lt;sap id='usr/txtRSYST-BNAME' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7651725e-2b18-47c0-9cc2-d77970e1cc78" InformativeScreenshot="bff398cee92439dcf4d410f94f6a77b0" Selector="&lt;wnd app='sapl*.exe' cls='SAP_FRONTEND_SESSION' title='*SAP' /&gt;&#xA;&lt;sap id='usr/txtRSYST-BNAME' /&gt;&#xA;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -101,9 +114,9 @@
         </ui:Target>
       </ui:TypeSecureText.Target>
     </ui:TypeSecureText>
-    <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Text Passwort eintragen" sap:VirtualizedContainerService.HintSize="505,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_2" SecureText="[password]">
+    <ui:TypeSecureText AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Secure Text Passwort eintragen" sap:VirtualizedContainerService.HintSize="651,106" sap2010:WorkflowViewState.IdRef="TypeSecureText_2" SecureText="[password]">
       <ui:TypeSecureText.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d879a3f-11ec-481e-a7ef-07244ea7e875" InformativeScreenshot="41e55e8aec17739b77471c70cd9ef16c" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*SAP' /&gt;&lt;sap id='usr/pwdRSYST-BCODE' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7d879a3f-11ec-481e-a7ef-07244ea7e875" InformativeScreenshot="41e55e8aec17739b77471c70cd9ef16c" Selector="&lt;wnd app='sapl*.exe' cls='SAP_FRONTEND_SESSION' title='*SAP' /&gt;&lt;sap id='usr/pwdRSYST-BCODE' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -113,9 +126,9 @@
         </ui:Target>
       </ui:TypeSecureText.Target>
     </ui:TypeSecureText>
-    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Enter eingeben" sap:VirtualizedContainerService.HintSize="505,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="%[k(enter)]">
+    <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Enter eingeben" sap:VirtualizedContainerService.HintSize="651,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" Text="%[k(enter)]">
       <ui:TypeInto.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3bbc658-9cae-47e4-8ce9-bcd687f52f52" InformativeScreenshot="c04f0b4d21e30fc85357d3958451019c" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='*SAP*' /&gt;&lt;sap id='*' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d3bbc658-9cae-47e4-8ce9-bcd687f52f52" InformativeScreenshot="c04f0b4d21e30fc85357d3958451019c" Selector="&lt;wnd app='sapl*.exe' cls='SAP_FRONTEND_SESSION' title='*SAP*' /&gt;&lt;sap id='*' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -125,25 +138,25 @@
         </ui:Target>
       </ui:TypeInto.Target>
     </ui:TypeInto>
-    <ui:UiElementExists DisplayName="Element Exists 'Titlebar SAP'" Exists="[startseite]" sap:VirtualizedContainerService.HintSize="505,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+    <ui:UiElementExists DisplayName="Element Exists 'Titlebar SAP'" Exists="[startseite]" sap:VirtualizedContainerService.HintSize="651,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7771cef0-929d-408d-977a-9aa3d9953f36" InformativeScreenshot="fde8637dc0c0b0634ede056a320224de" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='SAP Easy Access  MIBA logistics menu' /&gt;&lt;sap id='titl' /&gt;" TimeoutMS="500">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7771cef0-929d-408d-977a-9aa3d9953f36" InformativeScreenshot="fde8637dc0c0b0634ede056a320224de" Selector="&lt;wnd app='sapl*.exe' cls='SAP_FRONTEND_SESSION' title='*SAP Easy Access  MIBA logistics menu*' /&gt;" TimeoutMS="500">
           <ui:Target.WaitForReady>
             <InArgument x:TypeArguments="ui:WaitForReady" />
           </ui:Target.WaitForReady>
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <ui:UiElementExists DisplayName="Element Exists 'saplogon.exe MIP(1)/100'" Exists="[achtung]" sap:VirtualizedContainerService.HintSize="505,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+    <ui:UiElementExists DisplayName="Element Exists 'saplogon.exe MIP(1)/100'" Exists="[achtung]" sap:VirtualizedContainerService.HintSize="651,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
       <ui:UiElementExists.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d01b142c-88f2-4b8e-ab32-f8533a526d75" InformativeScreenshot="0b81fc5af05234902302e19ed63bdfbd" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='MIP(1)/100 Systemnachrichten' idx='*' /&gt;" TimeoutMS="1000">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d01b142c-88f2-4b8e-ab32-f8533a526d75" InformativeScreenshot="0b81fc5af05234902302e19ed63bdfbd" Selector="&lt;wnd app='sapl*.exe' cls='#32770' title='*Systemnachrichten*' idx='*' /&gt;" TimeoutMS="1000">
           <ui:Target.WaitForReady>
             <InArgument x:TypeArguments="ui:WaitForReady" />
           </ui:Target.WaitForReady>
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If Condition="[achtung = True]" sap:VirtualizedContainerService.HintSize="505,254" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[achtung = True]" sap:VirtualizedContainerService.HintSize="651,254" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button  Weiter (F12)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
           <ui:Click.CursorPosition>
@@ -157,7 +170,7 @@
             </ui:CursorPosition>
           </ui:Click.CursorPosition>
           <ui:Click.Target>
-            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="364e00fb-ba43-43e6-b266-64ace179fd7c" InformativeScreenshot="b3606515d332bc7f632923382c940db5" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='MIP(1)/100 Systemnachrichten' idx='*' /&gt;&lt;sap id='tbar[0]/btn[12]' /&gt;">
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="364e00fb-ba43-43e6-b266-64ace179fd7c" InformativeScreenshot="b3606515d332bc7f632923382c940db5" Selector="&lt;wnd app='sapl*.exe' cls='#32770' title='*Systemnachrichten*' idx='*' /&gt;&lt;sap id='tbar[0]/btn[12]' /&gt;">
               <ui:Target.TimeoutMS>
                 <InArgument x:TypeArguments="x:Int32" />
               </ui:Target.TimeoutMS>
@@ -169,12 +182,55 @@
         </ui:Click>
       </If.Then>
     </If>
-    <If Condition="[startseite = True]" sap:VirtualizedContainerService.HintSize="505,209" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:UiElementExists DisplayName="Element Exists 'saplogon.exe  Systemnac...'" Exists="[isda]" sap:VirtualizedContainerService.HintSize="651,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ed565b98-b204-4454-9322-57afe86da346" InformativeScreenshot="fc3e4bed0e08a0bf17c11becd71a23dd" Selector="&lt;wnd app='sapl*.exe' cls='#32770' title='*Systemnachrichten*' idx='*' /&gt;" TimeoutMS="500">
+          <ui:Target.WaitForReady>
+            <InArgument x:TypeArguments="ui:WaitForReady" />
+          </ui:Target.WaitForReady>
+        </ui:Target>
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <If Condition="[isda]" sap:VirtualizedContainerService.HintSize="651,254" sap2010:WorkflowViewState.IdRef="If_3">
+      <If.Then>
+        <ui:Click AlterIfDisabled="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DelayBefore="300" DisplayName="Click 'Button  Weiter (F12)'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+          <ui:Click.CursorPosition>
+            <ui:CursorPosition Position="Center">
+              <ui:CursorPosition.OffsetX>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetX>
+              <ui:CursorPosition.OffsetY>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:CursorPosition.OffsetY>
+            </ui:CursorPosition>
+          </ui:Click.CursorPosition>
+          <ui:Click.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a923e513-6b58-4980-a06c-03cd43310703" InformativeScreenshot="4b71085f890c8ff1e3563afae7c55f7c" Selector="&lt;wnd app='sapl*.exe' cls='#32770' title='*Systemnachrichten*' idx='*' /&gt;&lt;sap id='tbar[0]/btn[12]' /&gt;">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+              <ui:Target.WaitForReady>
+                <InArgument x:TypeArguments="ui:WaitForReady" />
+              </ui:Target.WaitForReady>
+            </ui:Target>
+          </ui:Click.Target>
+        </ui:Click>
+      </If.Then>
+    </If>
+    <If Condition="[startseite = True]" sap:VirtualizedContainerService.HintSize="651,447" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Login erfolgreich" />
       </If.Then>
       <If.Else>
-        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="SAP Login fehlgeschlagen" />
+        <Sequence sap:VirtualizedContainerService.HintSize="376,299" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="SAP Login fehlgeschlagen" />
+          <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'saplogon.exe MIP(1)/100'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="4d757c8d2c573412b52e39deca540078" Selector="&lt;wnd app='sapl*.exe' title='MIP(1)/100 *' idx='1' /&gt;" WaitForReady="INTERACTIVE" />
+        </Sequence>
       </If.Else>
     </If>
   </Sequence>
